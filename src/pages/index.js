@@ -1,16 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
     <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h1>Diversity Reacts</h1>
+    <p>Check out our recent videos!</p>
+    {data.creators.nodes.map(creator =>(
+      <div key={`creator-${creator.slug}`}>
+        <p>{creator.name}</p>
+      </div>
+    ))}
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
@@ -20,3 +24,17 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+export const query = graphql`
+  {
+    creators: allContentfulCreator {
+      nodes {
+        name
+        slug
+        bio {
+          bio
+        }
+      }
+    }
+  }
+`
