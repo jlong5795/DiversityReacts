@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter`,
@@ -18,8 +20,8 @@ module.exports = {
     {
       resolve: "gatsby-source-contentful",
       options: {
-        spaceId: 'ffxawe2e572f',
-        accessToken: 'etVUi3ny7z8_qJ-VMCEuOwYDqFvRBy_RW74X52d88Sk',
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {
