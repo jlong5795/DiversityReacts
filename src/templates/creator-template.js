@@ -4,8 +4,8 @@ const CreatorTemplate = ({ data }) => {
   console.log('From Creator Template', data)
   return (
     <div id='help'>
-        {/* <h1>Creator: {data.creator.name}</h1>
-        <p>Bio: {data.creator.bio.bio}</p> */}
+        <h1>Creator: {data.creator.name}</h1>
+        <p>Bio: {data.creator.bio.bio}</p>
         <p style={{color:'black', backgroundColor: 'red'}}>control text</p>
     </div>
   )
